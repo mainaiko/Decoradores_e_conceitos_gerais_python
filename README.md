@@ -1,1 +1,3 @@
-# Decoradores_e_conceitos_gerais_python
+# Python fundamentals
+
+Recapitulando conceitos python
