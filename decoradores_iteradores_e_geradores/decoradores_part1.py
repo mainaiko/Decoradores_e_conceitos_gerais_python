@@ -9,11 +9,11 @@ def dizer_oi(nome):
 def incentivar_aprender(nome):
     return f"Vamos aprender python juntas {nome}"
 
-def mensagem(funcao):
-    return funcao("Aiko")
+def mensagem(funcao, main_name):
+    return funcao(main_name)
 
-print (mensagem(dizer_oi))
-print (mensagem(incentivar_aprender))
+print (mensagem(dizer_oi, "aiko"))
+print (mensagem(incentivar_aprender, "aiko"))
 
 """
 Inner functions
@@ -31,7 +31,7 @@ def pai():
     filho1()
     filho2()
 
-print (pai())
+pai()
 
 """
 Retornando funçoes de funçoes
@@ -41,19 +41,26 @@ Python tambem permite que voce use funçoes como valores de retorno
 def caucular(operacao):
     def somar(a, b):
         return a+b
-    
     def subtrair(a, b):
         return a-b
+    def multi(a, b):
+        return a*b
+    def div(a, b):
+        return a/b
     
-    match operacao:
+    match operacao: #estrutura parecida com o Swith case de outras linguagens
         case "+":
             return somar
         case "-":
             return subtrair
+        case "*":
+            return multi
+        case "/":
+            return div
+        
     
-resultado = caucular("+")(1,14)
+print (caucular("+")(1,14))
 
-print (resultado)
 
 """
 Decoradores simples
@@ -61,7 +68,7 @@ Agora que entendemos que funçoes sao como qualquer outro objeto em python, pode
 e ver a magica que é o decorador python
 """
 
-def meu_decorador(funcao):
+def meu_decorador(funcao):#passando a funçao ola mundo de parametro para o decorador
     def envelope():
         print ("faz algo antes")
         funcao()
@@ -88,7 +95,7 @@ def meu_decorador(funcao):
         funcao()
         print ("faz algo depois")
 
-    return envelope
+    return envelope# Posso retornar quantas funçoes eu quiser
 
 @meu_decorador
 def ola_mundo():
