@@ -10,10 +10,10 @@ def duplicar(func):
     return envelope
 
 @duplicar
-def aprender(tecnologia):
-    print (f"Estou aprendendo {tecnologia}")
+def aprender(tecnologia, plataforma):
+    print (f"Estou aprendendo {tecnologia} na {plataforma}")
 
-aprender("python")
+aprender("python", "DIO")
 
 """
 Retornando valores de funçoe decoradas
@@ -31,7 +31,7 @@ def aprender(tecnologia):
     print (f"Estou aprendendo {tecnologia}")
     return tecnologia.upper()
 
-tecnologia = aprender("python")
+tecnologia = aprender("Java")
 
 print (tecnologia)
 
